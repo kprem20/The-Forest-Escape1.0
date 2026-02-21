@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escape Realms</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-overlay"></div>
+    <div id="character" class="character hidden">🧙</div>
+
+    <main class="game-wrapper">
+      <section id="startScreen" class="panel start-panel">
+        <div class="title-block">
+          <p class="eyebrow">Interactive Text Adventure</p>
+          <h1>Escape Realms</h1>
+          <p class="subtitle">
+            Three realms. Endless outcomes. Choose wisely and survive.
+          </p>
+        </div>
+        <div class="mode-buttons">
+          <button class="mode-btn" data-mode="forest">
+            Forest Escape 🌲
+            <span>Find the forest's edge before it finds you.</span>
+          </button>
+          <button class="mode-btn" data-mode="ghost">
+            Ghost Escape 👻
+            <span>Unravel haunted halls to see the dawn.</span>
+          </button>
+          <button class="mode-btn" data-mode="survive">
+            Survive Escape 🏝
+            <span>Conquer the island to earn your rescue.</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="gameScreen" class="panel game-panel hidden">
+        <div id="celebration" class="celebration hidden">
+          <div class="celebration-content">
+            <h1 class="celebration-title">🎉 ESCAPED! 🎉</h1>
+            <p class="celebration-subtitle">Congratulations, Adventurer!</p>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+            <div class="confetti"></div>
+          </div>
+        </div>
+        <header class="panel-header">
+          <div>
+            <p class="eyebrow" id="modeLabel"></p>
+            <h2 id="sceneLabel">Initiating...</h2>
+          </div>
+          <div class="controls">
+            <button id="restartBtn" class="ghost-btn" type="button">
+              Restart
+            </button>
+          </div>
+        </header>
+
+        <div class="story-window">
+          <div class="typewriter-glow"></div>
+          <div class="aiden-header">
+            <span class="aiden-name">AIDEN</span>
+            <span class="aiden-status" id="aidenStatus">●</span>
+          </div>
+          <p id="storyText" class="story-text">
+            The console hums, awaiting your input...
+          </p>
+        </div>
+
+        <div id="choices" class="choices"></div>
+      </section>
+    </main>
+
+    <audio id="bgAudio" loop preload="auto"></audio>
+    <audio id="clickSound" preload="auto"></audio>
+    <audio id="typeSound" preload="auto"></audio>
+    <audio id="sceneSound" preload="auto"></audio>
+    <audio id="winSound" preload="auto"></audio>
+    <audio id="loseSound" preload="auto"></audio>
+
+    <!-- Sound Configuration Panel -->
+    <div id="soundConfig" class="sound-config-panel">
+      <div class="sound-config-header">
+        <span>🔊 Sound Settings</span>
+        <button id="toggleConfig" class="config-toggle">−</button>
+      </div>
+      <div class="sound-config-content">
+        <div class="sound-control">
+          <label>
+            <input type="checkbox" id="soundEnabled" checked>
+            <span>Enable Sounds</span>
+          </label>
+        </div>
+        <div class="sound-control">
+          <label>
+            Background Music:
+            <input type="range" id="bgVolume" min="0" max="100" value="50">
+            <span id="bgVolumeValue">50%</span>
+          </label>
+        </div>
+        <div class="sound-control">
+          <label>
+            Click Sounds:
+            <input type="range" id="clickVolume" min="0" max="100" value="50">
+            <span id="clickVolumeValue">50%</span>
+          </label>
+        </div>
+        <div class="sound-status" id="soundStatus">
+          <span>Status: <span id="statusText">Ready</span></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
